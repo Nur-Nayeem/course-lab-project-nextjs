@@ -1,9 +1,8 @@
 import Link from "next/link";
 import React from "react";
-import { BiLaptop, BiSearch } from "react-icons/bi";
+import { BiSearch } from "react-icons/bi";
 import { FaBars, FaLaptopCode } from "react-icons/fa";
-import { IoPersonCircleOutline } from "react-icons/io5";
-import { PiNotePencilLight } from "react-icons/pi";
+import { BsFillPersonPlusFill } from "react-icons/bs";
 const Navbar = () => {
   return (
     <nav className="fixed top-0 z-50 w-full border border-white/20 bg-white/30 px-2.5 sm:px-0 py-3 backdrop-blur-lg">
@@ -46,7 +45,7 @@ const Navbar = () => {
             </div>
             <div className="flex items-center gap-3 text-primary">
               <FaLaptopCode className="text-3xl" />
-              <h2 className="text-3xl font-bold hidden sm:block">Course Lab</h2>
+              <h2 className="text-2xl font-bold hidden sm:block">Course Lab</h2>
             </div>
           </div>
           <div className="hidden lg:flex items-center gap-9 ">
@@ -87,12 +86,14 @@ const Navbar = () => {
             </div>
           </label>
 
-          <div className="space-x-2.5">
-            <button className="hidden sm:inline py-2.5 px-4 cursor-pointer items-center justify-center overflow-hidden rounded-lg  bg-gray-300 text-[#333333]  text-sm font-bold transition-transform hover:scale-101">
+          <div className="space-x-2.5 flex ">
+            <button className="hidden sm:flex py-2.5 px-3 cursor-pointer items-center justify-center overflow-hidden rounded-lg  bg-gray-300 text-[#333333]  text-sm font-bold transition-transform hover:scale-101">
               Login
             </button>
-            <button className="bg-primary py-2.5 px-4 cursor-pointer items-center justify-center overflow-hidden rounded-lg  text-white text-sm font-bold transition-transform hover:scale-101">
-              Sign Up
+            <button className="bg-primary py-2.5 px-3 cursor-pointer items-center justify-center overflow-hidden rounded-lg  text-white text-sm font-bold transition-transform hover:scale-101">
+              <span className="hidden sm:flex"> Sign Up</span>
+
+              <BsFillPersonPlusFill className="sm:hidden" />
             </button>
           </div>
 
