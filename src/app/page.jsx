@@ -1,4 +1,3 @@
-import Footer from "@/components/footer/Footer";
 import Banner from "@/components/LandingPageComponents/banner/Banner";
 import CtaBanner from "@/components/LandingPageComponents/CTABanner/CtaBanner";
 import PopulerCourse from "@/components/LandingPageComponents/PopulerCourse/PopulerCourse";
@@ -9,11 +8,12 @@ export default function Home() {
   return (
     <div className=" bg-zinc-50">
       <Banner />
-      <WhyLearn />
-      <PopulerCourse />
-      <Testimonials />
-      <CtaBanner />
-      <Footer />
+      <div className="px-2.5 sm:px-0">
+        <WhyLearn />
+        <PopulerCourse />
+        <Testimonials />
+        <CtaBanner />
+      </div>
     </div>
   );
 }

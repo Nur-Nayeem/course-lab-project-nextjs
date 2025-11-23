@@ -19,9 +19,6 @@ const PopulerCourse = () => {
           <PopulerCourseCard />
           <PopulerCourseCard />
           <PopulerCourseCard />
-          <PopulerCourseCard />
-          <PopulerCourseCard />
-          <PopulerCourseCard />
         </div>
       </div>
     </div>
