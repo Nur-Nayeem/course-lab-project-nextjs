@@ -1,5 +1,7 @@
 import Banner from "@/components/LandingPageComponents/banner/Banner";
+import CtaBanner from "@/components/LandingPageComponents/CTABanner/CtaBanner";
 import PopulerCourse from "@/components/LandingPageComponents/PopulerCourse/PopulerCourse";
+import Testimonials from "@/components/LandingPageComponents/Testimonials/Testimonials";
 import WhyLearn from "@/components/LandingPageComponents/WhyLearnSection/WhyLearn";
 
 export default function Home() {
@@ -8,6 +10,8 @@ export default function Home() {
       <Banner />
       <WhyLearn />
       <PopulerCourse />
+      <Testimonials />
+      <CtaBanner />
     </div>
   );
 }
