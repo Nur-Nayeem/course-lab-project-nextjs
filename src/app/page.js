@@ -1,3 +1,4 @@
+import Footer from "@/components/footer/Footer";
 import Banner from "@/components/LandingPageComponents/banner/Banner";
 import CtaBanner from "@/components/LandingPageComponents/CTABanner/CtaBanner";
 import PopulerCourse from "@/components/LandingPageComponents/PopulerCourse/PopulerCourse";
@@ -12,6 +13,7 @@ export default function Home() {
       <PopulerCourse />
       <Testimonials />
       <CtaBanner />
+      <Footer />
     </div>
   );
 }
