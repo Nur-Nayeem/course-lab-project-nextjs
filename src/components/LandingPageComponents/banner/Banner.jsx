@@ -8,13 +8,13 @@ const Banner = () => {
           <h1 className="text-4xl font-black text-[#333333] sm:text-5xl md:text-6xl">
             Learn New Skills Anytime, Anywhere
           </h1>
-          <h2 className="mx-auto max-w-2xl text-gray-400 text-lg ">
+          <h2 className="mx-auto max-w-2xl text-gray-500 text-lg ">
             Explore our curated collection of courses and start your learning
             journey today to unlock your full potential.
           </h2>
           <div className="flex justify-center">
             <button className="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg py-3 px-6 bg-primary text-white text-base font-bold transition-transform hover:scale-102">
-              <span className="truncate">Browse Courses</span>
+              Browse Courses
             </button>
           </div>
         </div>
