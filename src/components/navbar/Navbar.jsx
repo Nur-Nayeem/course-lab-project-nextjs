@@ -1,9 +1,14 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { use } from "react";
 import { BiSearch } from "react-icons/bi";
-import { FaBars, FaLaptopCode } from "react-icons/fa";
+import { FaBars, FaLaptopCode, FaPlus } from "react-icons/fa";
 import { BsFillPersonPlusFill } from "react-icons/bs";
+import { AuthContext } from "@/context/AuthContext";
+import { IoPersonCircleOutline } from "react-icons/io5";
 const Navbar = () => {
+  const { user, status, logout } = use(AuthContext);
+
   return (
     <nav className="fixed top-0 z-50 w-full border border-white/20 bg-white/30 px-2.5 sm:px-0 py-3 backdrop-blur-lg">
       <div className="flex items-center justify-between container mx-auto">
@@ -30,9 +35,9 @@ const Navbar = () => {
               </Link>
               <Link
                 className="font-medium leading-normal text-[#333333] hover:text-primary"
-                href={"/categories"}
+                href={"/add-course"}
               >
-                Categories
+                Add Course
               </Link>
               <Link
                 className="font-medium leading-normal text-[#333333] hover:text-primary"
@@ -62,9 +67,9 @@ const Navbar = () => {
           </Link>
           <Link
             className="font-medium leading-normal text-[#333333] hover:text-primary"
-            href={"/categories"}
+            href={"/add-course"}
           >
-            Categories
+            Add Course
           </Link>
           <Link
             className="font-medium leading-normal text-[#333333] hover:text-primary"
@@ -84,25 +89,32 @@ const Navbar = () => {
             </div>
           </label>
 
-          <div className="space-x-2.5 flex ">
-            <button className="hidden sm:flex py-2.5 h-10 px-3 cursor-pointer items-center justify-center overflow-hidden rounded-lg  bg-gray-300 text-[#333333]  text-sm font-bold transition-transform hover:scale-101">
-              Login
-            </button>
-            <button className="bg-primary py-2.5 h-10 px-3 cursor-pointer items-center justify-center overflow-hidden rounded-lg  text-white text-sm font-bold transition-transform hover:scale-101">
-              <span className="hidden sm:flex"> Signup</span>
+          {user ? (
+            <>
+              <div className="flex items-center gap-2.5">
+                <IoPersonCircleOutline className="size-12 text-gray-500" />
+                <button
+                  onClick={logout}
+                  className="bg-red-500 text-white px-4 py-2 rounded"
+                >
+                  Logout
+                </button>
+              </div>
+            </>
+          ) : status === "loading" ? (
+            <h2 className="text-black">Loading...</h2>
+          ) : (
+            <div className="space-x-2.5 flex ">
+              <button className="hidden sm:flex py-2.5 h-10 px-3 cursor-pointer items-center justify-center overflow-hidden rounded-lg  bg-gray-300 text-[#333333]  text-sm font-bold transition-transform hover:scale-101">
+                Login
+              </button>
+              <button className="bg-primary py-2.5 h-10 px-3 cursor-pointer items-center justify-center overflow-hidden rounded-lg  text-white text-sm font-bold transition-transform hover:scale-101">
+                <span className="hidden sm:flex"> Signup</span>
 
-              <BsFillPersonPlusFill className="sm:hidden" />
-            </button>
-          </div>
-
-          {/* after login : */}
-          {/* <div className="flex items-center gap-2.5">
-            <button className="bg-primary py-2.5 px-4 cursor-pointer items-center gap-2 justify-center overflow-hidden rounded-lg  text-white text-sm font-bold transition-transform hover:scale-101 flex">
-              <span className="hidden sm:inline">Add Course</span>
-              <PiNotePencilLight className="size-5" />
-            </button>
-            <IoPersonCircleOutline className="size-12 text-gray-500" />
-          </div> */}
+                <BsFillPersonPlusFill className="sm:hidden" />
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </nav>
