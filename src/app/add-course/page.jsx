@@ -3,7 +3,7 @@ import React from "react";
 const AddCourse = () => {
   return (
     <div className="flex justify-center py-24 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-3xl space-y-10">
+      <div className="w-full max-w-3xl space-y-5">
         <div className=" space-y-2 text-center">
           <h1 className="text-[#333333] text-3xl sm:text-4xl font-bold ">
             Add a New Course

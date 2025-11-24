@@ -3,13 +3,15 @@ import CouresCard from "@/components/AllCoursesComponents/CourseCard/CouresCard"
 import React from "react";
 import { BiSearch } from "react-icons/bi";
 
-const AllCourses = () => {
+const AllCourses = async () => {
+  const data = await fetch("http://localhost:4000/courses");
+  const courses = await data.json();
   return (
     <div className="grow">
       <div className="container mx-auto py-24">
         <div className="text-center mb-10">
           <h1 className="text-[#333333] text-4xl md:text-5xl font-black mb-3">
-            All Courses
+            All Courses {courses.length}
           </h1>
           <p className="text-lg text-slate-500  max-w-2xl mx-auto">
             Explore our curated selection of courses to kickstart your learning
@@ -35,15 +37,10 @@ const AllCourses = () => {
         </div>
 
         {/* all courses  */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          <CouresCard />
-          <CouresCard />
-          <CouresCard />
-          <CouresCard />
-          <CouresCard />
-          <CouresCard />
-          <CouresCard />
-          <CouresCard />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {courses.map((course, index) => (
+            <CouresCard key={index} course={course} />
+          ))}
         </div>
       </div>
     </div>
