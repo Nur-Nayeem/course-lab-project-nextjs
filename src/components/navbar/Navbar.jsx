@@ -41,9 +41,9 @@ const Navbar = () => {
               </Link>
               <Link
                 className="font-medium leading-normal text-[#333333] hover:text-primary"
-                href={"/contact"}
+                href={"/manage-courses"}
               >
-                Contact
+                Manage Course
               </Link>
             </ul>
           </div>
@@ -73,9 +73,9 @@ const Navbar = () => {
           </Link>
           <Link
             className="font-medium leading-normal text-[#333333] hover:text-primary"
-            href={"/contact"}
+            href={"/manage-courses"}
           >
-            Contact
+            Manage Course
           </Link>
         </div>
         <div className="flex flex-1 items-center justify-end gap-4">
@@ -105,14 +105,20 @@ const Navbar = () => {
             <h2 className="text-black">Loading...</h2>
           ) : (
             <div className="space-x-2.5 flex ">
-              <button className="hidden sm:flex py-2.5 h-10 px-3 cursor-pointer items-center justify-center overflow-hidden rounded-lg  bg-gray-300 text-[#333333]  text-sm font-bold transition-transform hover:scale-101">
+              <Link
+                href="/login"
+                className="hidden sm:flex py-2.5 h-10 px-3 cursor-pointer items-center justify-center overflow-hidden rounded-lg  bg-gray-300 text-[#333333]  text-sm font-bold transition-transform hover:scale-101"
+              >
                 Login
-              </button>
-              <button className="bg-primary py-2.5 h-10 px-3 cursor-pointer items-center justify-center overflow-hidden rounded-lg  text-white text-sm font-bold transition-transform hover:scale-101">
+              </Link>
+              <Link
+                href="/register"
+                className="bg-primary py-2.5 h-10 px-3 cursor-pointer items-center justify-center overflow-hidden rounded-lg  text-white text-sm font-bold transition-transform hover:scale-101"
+              >
                 <span className="hidden sm:flex"> Signup</span>
 
                 <BsFillPersonPlusFill className="sm:hidden" />
-              </button>
+              </Link>
             </div>
           )}
         </div>
