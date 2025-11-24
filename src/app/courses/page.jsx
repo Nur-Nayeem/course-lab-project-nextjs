@@ -1,13 +1,14 @@
 import Categories from "@/components/AllCoursesComponents/Categories/Categories";
 import CouresCard from "@/components/AllCoursesComponents/CourseCard/CouresCard";
+import axios from "axios";
 import React from "react";
 import { BiSearch } from "react-icons/bi";
 
 const AllCourses = async () => {
   let courses = [];
   try {
-    const data = await fetch("http://localhost:4000/courses");
-    courses = await data.json();
+    const data = await axios.get("http://localhost:4000/courses");
+    courses = data.data;
   } catch (error) {
     console.log(error);
   }

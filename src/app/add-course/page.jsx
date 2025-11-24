@@ -6,6 +6,7 @@ const AddCourse = () => {
     "use server";
 
     const title = formData.get("title");
+    const category = formData.get("category");
     const description = formData.get("description");
     const price = parseFloat(formData.get("price"));
     const level = formData.get("level");
@@ -16,6 +17,7 @@ const AddCourse = () => {
     // Validation
     if (
       !title ||
+      !category ||
       !description ||
       Number.isNaN(price) ||
       !level ||
@@ -30,6 +32,7 @@ const AddCourse = () => {
     // Final object
     const courseObject = {
       title,
+      category,
       description,
       price,
       level,
@@ -66,17 +69,36 @@ const AddCourse = () => {
         <div className="rounded-xl shadow-xl bg-white p-6 sm:p-8">
           <form action={handlePublish} className="flex flex-col gap-6">
             <div className="grid grid-cols-1 gap-6">
-              {/* Title */}
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-[#333333]">
-                  Course Title
-                </label>
-                <input
-                  className="form-input flex w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
-                  placeholder="e.g., Introduction to Modern JavaScript"
-                  type="text"
-                  name="title"
-                />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Title + Category */}
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-medium text-[#333333]">
+                    Course Title
+                  </label>
+                  <input
+                    className="form-input flex w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
+                    placeholder="e.g., Introduction to Modern JavaScript"
+                    type="text"
+                    name="title"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-medium text-[#333333]">
+                    Category
+                  </label>
+                  <select
+                    className="form-input w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 focus:outline-primary"
+                    name="category"
+                  >
+                    <option value="">Select Category</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Design">Design</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="Programming">Programming</option>
+                  </select>
+                </div>
               </div>
 
               {/* Description */}

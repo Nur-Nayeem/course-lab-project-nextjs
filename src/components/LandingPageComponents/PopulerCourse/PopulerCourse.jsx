@@ -1,8 +1,14 @@
 import React from "react";
-import { BsStarFill } from "react-icons/bs";
-import PopulerCourseCard from "./PopulerCourseCard";
-
-const PopulerCourse = () => {
+import axios from "axios";
+import CouresCard from "@/components/AllCoursesComponents/CourseCard/CouresCard";
+const PopulerCourse = async () => {
+  let courses = [];
+  try {
+    const data = await axios.get("http://localhost:4000/courses?limit=3");
+    courses = data.data;
+  } catch (error) {
+    console.log(error);
+  }
   return (
     <div className="w-full py-16 md:py-24">
       <div className="container mx-auto">
@@ -16,9 +22,9 @@ const PopulerCourse = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <PopulerCourseCard />
-          <PopulerCourseCard />
-          <PopulerCourseCard />
+          {courses.map((course, index) => (
+            <CouresCard key={index} course={course} />
+          ))}
         </div>
       </div>
     </div>
