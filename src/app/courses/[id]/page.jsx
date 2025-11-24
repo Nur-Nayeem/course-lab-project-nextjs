@@ -3,7 +3,16 @@ import { BiArrowBack, BiBarChart, BiCalendar } from "react-icons/bi";
 import { BsPerson } from "react-icons/bs";
 import { MdLanguage, MdSchedule, MdSell } from "react-icons/md";
 
-const CourseDetails = () => {
+const CourseDetails = async ({ params }) => {
+  const { id } = await params;
+  let course = {};
+  try {
+    const data = await fetch(`http://localhost:4000/courses/${id}`);
+    course = await data.json();
+  } catch (error) {
+    console.log(error);
+  }
+
   return (
     <div className="container mx-auto flex flex-col w-full max-w-5xl flex-1 py-20">
       <div>
@@ -18,7 +27,7 @@ const CourseDetails = () => {
             <div className="bg-[url('/details.png')] bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-80 shadow-subtle">
               <div className="flex p-6 sm:p-8">
                 <h1 className="text-white text-3xl sm:text-4xl font-bold leading-tight">
-                  Mastering Next.js: A Comprehensive Guide
+                  {course.title}
                 </h1>
               </div>
             </div>
@@ -29,13 +38,7 @@ const CourseDetails = () => {
               About This Course
             </h2>
             <p className="text-gray-500 text-base font-normal">
-              This comprehensive course will take you from a beginner to an
-              expert in Next.js. We will cover everything from the fundamentals
-              of React and server-side rendering to advanced topics like data
-              fetching strategies, authentication with NextAuth, and deploying
-              your applications to production. By the end of this course, you
-              will have built a full-stack application and have the skills to
-              build your own robust, scalable web apps.
+              {course.description}
             </p>
           </div>
         </div>
@@ -48,7 +51,10 @@ const CourseDetails = () => {
                 </div>
                 <div className="flex flex-col">
                   <p className="text-gray-500 text-sm font-normal ">Price</p>
-                  <p className="text-[#333333] font-medium ">$99.99</p>
+                  <p className="text-[#333333] font-medium ">
+                    <span>$</span>
+                    {course.price}
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -59,7 +65,7 @@ const CourseDetails = () => {
                   <p className="text-gray-500 text-sm font-normal">
                     Skill Level
                   </p>
-                  <p className="text-[#333333] font-medium ">Intermediate</p>
+                  <p className="text-[#333333] font-medium ">{course.level}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -79,7 +85,9 @@ const CourseDetails = () => {
                 </div>
                 <div className="flex flex-col">
                   <p className="text-gray-500 text-sm font-normal">Duration</p>
-                  <p className="text-[#333333]  font-medium ">12 Hours</p>
+                  <p className="text-[#333333]  font-medium ">
+                    {course.duration} Hours
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -90,7 +98,9 @@ const CourseDetails = () => {
                   <p className="text-gray-500 text-sm font-normal">
                     Instructor
                   </p>
-                  <p className="text-[#333333] font-medium ">Jane Doe</p>
+                  <p className="text-[#333333] font-medium ">
+                    {course.instructor}
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -101,7 +111,9 @@ const CourseDetails = () => {
                   <p className="text-gray-500  text-sm font-normal ">
                     Language
                   </p>
-                  <p className="text-[#333333] font-medium ">English</p>
+                  <p className="text-[#333333] font-medium ">
+                    {course.language}
+                  </p>
                 </div>
               </div>
             </div>

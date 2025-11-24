@@ -4,8 +4,13 @@ import React from "react";
 import { BiSearch } from "react-icons/bi";
 
 const AllCourses = async () => {
-  const data = await fetch("http://localhost:4000/courses");
-  const courses = await data.json();
+  let courses = [];
+  try {
+    const data = await fetch("http://localhost:4000/courses");
+    courses = await data.json();
+  } catch (error) {
+    console.log(error);
+  }
   return (
     <div className="grow">
       <div className="container mx-auto py-24">

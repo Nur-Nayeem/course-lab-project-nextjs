@@ -13,7 +13,6 @@ const AuthContextProvider = ({ children }) => {
       if (status === "loading") return;
 
       setUser(session?.user || null);
-      setAuthLoading(false);
     }
 
     handleSession();
