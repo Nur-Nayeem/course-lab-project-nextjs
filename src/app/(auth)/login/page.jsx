@@ -108,7 +108,7 @@ export default function Login() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center rounded-lg h-11 px-5 w-full bg-primary hover:bg-primary/90 text-white gap-2 text-sm font-bold transition-colors shadow-sm shadow-primary/40"
+                  className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center rounded-lg py-3 px-5 w-full bg-primary hover:bg-primary/90 text-white gap-2 text-sm font-bold transition-colors shadow-sm shadow-primary/40"
                 >
                   Login
                 </button>
