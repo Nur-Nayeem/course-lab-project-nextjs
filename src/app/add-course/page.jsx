@@ -1,41 +1,97 @@
+import axios from "axios";
 import React from "react";
 
 const AddCourse = () => {
+  const handlePublish = async (formData) => {
+    "use server";
+
+    const title = formData.get("title");
+    const description = formData.get("description");
+    const price = parseFloat(formData.get("price"));
+    const level = formData.get("level");
+    const instructor = formData.get("instructor");
+    const image = formData.get("image");
+    const duration = parseInt(formData.get("duration"));
+
+    // Validation
+    if (
+      !title ||
+      !description ||
+      Number.isNaN(price) ||
+      !level ||
+      !instructor ||
+      !image ||
+      Number.isNaN(duration)
+    ) {
+      console.log("All fields must be filled");
+      return;
+    }
+
+    // Final object
+    const courseObject = {
+      title,
+      description,
+      price,
+      level,
+      instructor,
+      image,
+      duration,
+    };
+
+    try {
+      const data = await axios.post(
+        "http://localhost:4000/courses",
+        courseObject
+      );
+      console.log(data.data);
+      console.log("success");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="flex justify-center py-24 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-3xl space-y-5">
-        <div className=" space-y-2 text-center">
-          <h1 className="text-[#333333] text-3xl sm:text-4xl font-bold ">
+        <div className="space-y-2 text-center">
+          <h1 className="text-[#333333] text-3xl sm:text-4xl font-bold">
             Add a New Course
           </h1>
-          <p className="text-gray-500 text-base sm:text-lg font-normal leading-relaxed">
+          <p className="text-gray-500 text-base sm:text-lg font-normal">
             Fill in the details below to create and publish a new course to the
             catalog.
           </p>
         </div>
-        <div className="rounded-xl shadow-xl bg-white  border border-border-light p-6 sm:p-8">
-          <form className="flex flex-col gap-6">
+
+        <div className="rounded-xl shadow-xl bg-white p-6 sm:p-8">
+          <form action={handlePublish} className="flex flex-col gap-6">
             <div className="grid grid-cols-1 gap-6">
+              {/* Title */}
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-medium text-[#333333]">
                   Course Title
                 </label>
                 <input
-                  className="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
+                  className="form-input flex w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
                   placeholder="e.g., Introduction to Modern JavaScript"
                   type="text"
+                  name="title"
                 />
               </div>
+
+              {/* Description */}
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-medium text-[#333333]">
                   Description
                 </label>
                 <textarea
-                  className="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-2 placeholder:text-gray-500 focus:outline-primary"
+                  className="form-input flex w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-2 placeholder:text-gray-500 focus:outline-primary"
                   placeholder="A brief description of the course."
+                  name="description"
                 ></textarea>
               </div>
 
+              {/* Price + Level */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-medium text-[#333333]">
@@ -46,78 +102,90 @@ const AddCourse = () => {
                       <span className="text-gray-400 text-base">$</span>
                     </div>
                     <input
-                      className="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#333333] border border-slate-300 bg-white pl-8 py-3 placeholder:text-gray-500 focus:outline-primary"
+                      className="form-input w-full rounded-lg text-[#333333] border border-slate-300 bg-white pl-8 py-3 placeholder:text-gray-500 focus:outline-primary"
                       placeholder="99.99"
                       type="number"
+                      name="price"
+                      step="0.01"
                     />
                   </div>
                 </div>
+
                 <div className="flex flex-col gap-2">
-                  <label
-                    className="text-sm font-medium text-[#333333]"
-                    for="level"
-                  >
+                  <label className="text-sm font-medium text-[#333333]">
                     Level
                   </label>
-                  <div className="relative">
-                    <select className="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary">
-                      <option>Beginner</option>
-                      <option>Intermediate</option>
-                      <option>Advanced</option>
-                    </select>
-                  </div>
+                  <select
+                    className="form-input w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 focus:outline-primary"
+                    name="level"
+                  >
+                    <option value="">Select Level</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                  </select>
                 </div>
               </div>
+
+              {/* Instructor + Language */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-medium text-[#333333]">
-                    Instractor
+                    Instructor
                   </label>
                   <input
-                    className="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#333333] border border-slate-300 bg-white px-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
-                    placeholder="Instractor Name"
+                    className="form-input w-full rounded-lg text-[#333333] border border-slate-300 bg-white px-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
+                    placeholder="Instructor Name"
                     type="text"
+                    name="instructor"
                   />
                 </div>
+
                 <div className="flex flex-col gap-2">
-                  <label
-                    className="text-sm font-medium text-[#333333]"
-                    for="language"
-                  >
+                  <label className="text-sm font-medium text-[#333333]">
                     Language
                   </label>
-                  <div className="relative">
-                    <select className="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary">
-                      <option>Bangla</option>
-                      <option>English</option>
-                      <option>Hindi</option>
-                    </select>
-                  </div>
+                  <select
+                    className="form-input w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 focus:outline-primary"
+                    name="language"
+                  >
+                    <option value="">Select Language</option>
+                    <option value="Bangla">Bangla</option>
+                    <option value="English">English</option>
+                    <option value="Hindi">Hindi</option>
+                  </select>
                 </div>
               </div>
+
+              {/* Image + Duration */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-medium text-[#333333]">
                     Image URL
                   </label>
                   <input
-                    className="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
+                    className="form-input w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
                     placeholder="https://example.png"
                     type="url"
+                    name="image"
                   />
                 </div>
+
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-medium text-[#333333]">
-                    Duration
+                    Duration (hours)
                   </label>
                   <input
-                    className="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
-                    placeholder="e.g, duration in hours"
+                    className="form-input w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
+                    placeholder="e.g., 10"
                     type="number"
+                    name="duration"
                   />
                 </div>
               </div>
             </div>
+
+            {/* Button */}
             <div className="flex justify-end mt-2">
               <button className="cursor-pointer rounded-lg py-3 px-5 w-full bg-primary hover:bg-primary/90 text-white gap-2 text-sm font-bold transition-colors shadow-sm shadow-primary/40">
                 <span className="truncate">Publish Course</span>
