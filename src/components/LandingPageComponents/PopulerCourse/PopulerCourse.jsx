@@ -13,7 +13,7 @@ const PopulerCourse = async () => {
     <div className="w-full py-16 md:py-24">
       <div className="container mx-auto">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-[#333333]  sm:text-4xl">
+          <h2 className="text-3xl font-bold secondary-text  sm:text-4xl">
             Explore Our Popular Courses
           </h2>
           <p className="mt-4 text-lg text-gray-500 ">

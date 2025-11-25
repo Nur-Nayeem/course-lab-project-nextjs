@@ -1,5 +1,53 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
 @plugin "daisyui" {
-  themes: light --default;
+  themes: light --default, dark --prefersdark;
+}
+
+.primary-text {
+  @apply text-[#8b5cf6];
+}
+
+.secondary-text {
+  @apply text-[#333333];
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+.gradient-text {
+  @apply bg-linear-to-r from-[#8b5cf6] to-[#a78bfa] bg-clip-text text-transparent;
+}
+
+.gradient-cta-banner {
+  @apply bg-linear-to-r from-[#8b5cf6] to-[#a78bfa];
+}
+
+.btn-primary {
+  @apply bg-linear-to-r from-[#8b5cf6] to-[#a78bfa] border-0;
+}
+
+.active {
+  @apply text-[#a78bfa] font-semibold;
+}
+
+/* Glass Blurs */
+.glass-blur {
+  @apply bg-white/30 backdrop-blur-md border border-white/15 shadow-[0_8px_32px_0_rgba(31,38,135,0.1)];
+}
+
+/* Background Gradient for Light Mode */
+.gradient-bg {
+  background-color: #fcfcf5;
+  background-image: radial-gradient(
+      at 20% 10%,
+      rgba(252, 211, 77, 0.3) 0px,
+      transparent 50%
+    ),
+    /* Primary Yellow */
+      radial-gradient(at 80% 10%, rgba(167, 139, 250, 0.3) 0px, transparent 50%),
+    /* Secondary Lavender */
+      radial-gradient(at 20% 80%, rgba(245, 158, 11, 0.3) 0px, transparent 50%),
+    /* Deeper Yellow */
+      radial-gradient(at 80% 80%, rgba(139, 92, 246, 0.3) 0px, transparent 50%); /* Deeper Lavender */
 }

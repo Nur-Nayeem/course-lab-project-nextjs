@@ -4,10 +4,7 @@ const CtaBanner = () => {
   return (
     <section className="py-16 sm:py-24">
       <div className="container mx-auto">
-        <div className="relative overflow-hidden rounded-lg bg-[#6366F1] py-16 text-center text-white shadow-lg ">
-          <div aria-hidden="true" className="absolute inset-0">
-            <div className="absolute inset-0 bg-linear-to-br from-[#3B82F650] to-[#6366F1] opacity-50"></div>
-          </div>
+        <div className="relative overflow-hidden rounded-lg gradient-cta-banner py-16 text-center text-white shadow-lg ">
           <div className="relative">
             <h2 className="text-3xl font-bold  sm:text-4xl">
               Ready to Start Your Learning Journey?
@@ -17,7 +14,7 @@ const CtaBanner = () => {
               career. Your future self will thank you.
             </p>
             <div className="mt-8 flex justify-center">
-              <button className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-white text-primary text-base font-bold transition-transform hover:scale-105">
+              <button className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-white primary-text text-base font-bold transition-transform hover:scale-105">
                 Sign Up for Free
               </button>
             </div>

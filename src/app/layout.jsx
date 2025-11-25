@@ -24,16 +24,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased gradient-bg`}
       >
         <AuthProvider>
           <AuthContextProvider>
             <header>
               <Navbar />
             </header>
-            <main className="min-h-[calc(100vh-360px)] bg-white">
-              {children}
-            </main>
+            <main className="min-h-[calc(100vh-360px)]">{children}</main>
 
             <footer className="px-2.5 sm:px-0">
               <Footer />

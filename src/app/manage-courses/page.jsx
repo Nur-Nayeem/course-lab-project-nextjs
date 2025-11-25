@@ -22,12 +22,12 @@ const ManageCourse = async () => {
 
   return (
     <div className="container mx-auto py-20">
-      <h2 className="text-center text-3xl font-bold text-[#333333] my-4">
+      <h2 className="text-center text-3xl font-bold secondary-text my-4">
         Available Courses:{" "}
         <span className="text-red-400">{courses.length}</span>
       </h2>
       <div>
-        <div className="overflow-x-auto bg-base-100 rounded-lg w-full">
+        <div className="overflow-x-auto glass-blur rounded-lg w-full">
           <table className="table">
             <thead>
               <tr>

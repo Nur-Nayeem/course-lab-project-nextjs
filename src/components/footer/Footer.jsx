@@ -9,13 +9,15 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-100">
+    <footer className="glass-blur">
       <div className="container mx-auto py-12">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-3 text-primary">
-              <FaLaptopCode className="text-3xl" />
-              <h2 className="text-2xl font-bold">Course Lab</h2>
+            <div className="flex items-center gap-3 ">
+              <FaLaptopCode className="text-3xl primary-text" />
+              <h2 className="text-2xl font-bold hidden sm:block primary-text">
+                Course Lab
+              </h2>
             </div>
             <p className="mt-4 text-sm text-gray-500 ">
               Empowering minds through accessible, quality online education for
@@ -23,11 +25,11 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <h3 className="font-bold text-[#333333]">Quick Links</h3>
+            <h3 className="font-bold secondary-text">Quick Links</h3>
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
-                  className="text-sm text-gray-500  hover:text-primary "
+                  className="text-sm text-gray-500  hover:primary-text "
                   href="#"
                 >
                   Home
@@ -35,7 +37,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className="text-sm text-gray-500  hover:text-primary "
+                  className="text-sm text-gray-500  hover:primary-text "
                   href="#"
                 >
                   Courses
@@ -43,7 +45,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className="text-sm text-gray-500  hover:text-primary "
+                  className="text-sm text-gray-500  hover:primary-text "
                   href="#"
                 >
                   About Us
@@ -51,7 +53,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className="text-sm text-gray-500  hover:text-primary "
+                  className="text-sm text-gray-500  hover:primary-text "
                   href="#"
                 >
                   Contact
@@ -60,11 +62,11 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-[#333333] ">Legal</h3>
+            <h3 className="font-bold secondary-text ">Legal</h3>
             <ul className="mt-4 space-y-3">
               <li>
                 <Link
-                  className="text-sm text-gray-500 hover:text-primary "
+                  className="text-sm text-gray-500 hover:primary-text "
                   href="#"
                 >
                   Privacy Policy
@@ -72,7 +74,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className="text-sm text-gray-500  hover:text-primary "
+                  className="text-sm text-gray-500  hover:primary-text "
                   href="#"
                 >
                   Terms of Service
@@ -81,15 +83,15 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-[#333333] ">Connect</h3>
+            <h3 className="font-bold secondary-text ">Connect</h3>
             <div className="mt-4 flex space-x-4">
-              <Link className="text-gray-500  hover:text-primary " href="#">
+              <Link className="text-gray-500  hover:primary-text " href="#">
                 <FaFacebook className="text-2xl" />
               </Link>
-              <Link className="text-gray-500  hover:text-primary " href="#">
+              <Link className="text-gray-500  hover:primary-text " href="#">
                 <FaTwitter className="text-2xl" />
               </Link>
-              <Link className="text-gray-500  hover:text-primary " href="#">
+              <Link className="text-gray-500  hover:primary-text " href="#">
                 <FaLinkedin className="text-2xl" />
               </Link>
             </div>

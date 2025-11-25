@@ -6,7 +6,7 @@ import WhyLearn from "@/components/LandingPageComponents/WhyLearnSection/WhyLear
 
 export default function Home() {
   return (
-    <div className=" bg-zinc-50">
+    <div>
       <Banner />
       <div className="px-2.5 sm:px-0">
         <WhyLearn />

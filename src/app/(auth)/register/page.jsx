@@ -38,7 +38,7 @@ export default function Register() {
   return (
     <div className="flex h-full grow flex-col py-16">
       <div className="flex flex-1 items-center justify-center p-4 lg:p-8">
-        <div className="flex w-full max-w-6xl overflow-hidden rounded-xl bg-white shadow-xl shadow-slate-200/50">
+        <div className="flex w-full max-w-6xl overflow-hidden rounded-xl glass-blur shadow-xl shadow-slate-200/50">
           {/* Left Image */}
           <div className="hidden w-1/2 flex-col items-center justify-center p-12 lg:flex">
             <Image
@@ -54,7 +54,7 @@ export default function Register() {
           <div className="w-full lg:w-1/2 p-8 sm:p-12">
             <div className="flex flex-col max-w-md mx-auto h-full justify-center">
               <div className="mb-8 text-center">
-                <h1 className="text-3xl font-bold text-[#333333]">
+                <h1 className="text-3xl font-bold secondary-text">
                   Create Account
                 </h1>
                 <p className="mt-2 text-base text-gray-500">
@@ -66,7 +66,7 @@ export default function Register() {
               <form className="flex flex-col gap-6" onSubmit={signup}>
                 {/* Name */}
                 <label className="flex flex-col w-full">
-                  <p className="text-sm font-medium pb-2 text-[#333333]">
+                  <p className="text-sm font-medium pb-2 secondary-text">
                     Name
                   </p>
                   <div className="relative flex w-full flex-1 items-stretch">
@@ -76,7 +76,7 @@ export default function Register() {
                     <input
                       required
                       placeholder="Your Name"
-                      className="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#333333] border border-slate-300 bg-white h-11 pl-11 pr-11 py-2 placeholder:text-gray-500 focus:outline-primary"
+                      className="form-input flex w-full min-w-0 flex-1 rounded-lg secondary-text border border-slate-300 bg-white/60 px-10 py-3 placeholder:text-gray-500 focus:outline-primary"
                       onChange={(e) =>
                         setData({ ...data, name: e.target.value })
                       }
@@ -86,7 +86,7 @@ export default function Register() {
 
                 {/* Email */}
                 <label className="flex flex-col w-full">
-                  <p className="text-sm font-medium pb-2 text-[#333333]">
+                  <p className="text-sm font-medium pb-2 secondary-text">
                     Email Address
                   </p>
                   <div className="relative flex w-full flex-1 items-stretch">
@@ -97,7 +97,7 @@ export default function Register() {
                       type="email"
                       required
                       placeholder="nur@gmail.com"
-                      className="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#333333] border border-slate-300 bg-white h-11 pl-11 pr-11 py-2 placeholder:text-gray-500 focus:outline-primary"
+                      className="form-input flex w-full min-w-0 flex-1 rounded-lg secondary-text border border-slate-300 bg-white/60 px-10 py-3 placeholder:text-gray-500 focus:outline-primary"
                       onChange={(e) =>
                         setData({ ...data, email: e.target.value })
                       }
@@ -107,7 +107,7 @@ export default function Register() {
 
                 {/* Password */}
                 <label className="flex flex-col w-full">
-                  <p className="text-sm font-medium pb-2 text-[#333333]">
+                  <p className="text-sm font-medium pb-2 secondary-text">
                     Password
                   </p>
                   <div className="relative flex w-full flex-1 items-stretch">
@@ -118,7 +118,7 @@ export default function Register() {
                       required
                       type={showPass ? "text" : "password"}
                       placeholder="Enter your password"
-                      className="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#333333] border border-slate-300 bg-white h-11 pl-11 pr-11 py-2 placeholder:text-gray-500 focus:outline-primary"
+                      className="form-input flex w-full min-w-0 flex-1 rounded-lg secondary-text border border-slate-300 bg-white/60 px-10 py-3 placeholder:text-gray-500 focus:outline-primary"
                       onChange={(e) =>
                         setData({ ...data, password: e.target.value })
                       }
@@ -126,7 +126,7 @@ export default function Register() {
                     <button
                       type="button"
                       onClick={() => setShowPass(!showPass)}
-                      className="text-gray-500 absolute right-0 flex items-center justify-center pr-3.5 h-full cursor-pointer hover:text-text-primary"
+                      className="text-gray-500 absolute right-0 flex items-center justify-center pr-3.5 h-full cursor-pointer hover:text=[#333333]"
                     >
                       {showPass ? <IoEye /> : <IoEyeOff />}
                     </button>
@@ -136,7 +136,7 @@ export default function Register() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="flex min-w-[84px] max-w-[480px] items-center justify-center rounded-lg h-11 px-5 w-full bg-primary hover:bg-primary/90 text-white gap-2 text-sm font-bold transition-colors shadow-sm shadow-primary/40"
+                  className="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg py-3 px-6 btn-primary text-white text-base font-bold hover:scale-101 transition-transform duration-300"
                 >
                   Register
                 </button>
@@ -154,7 +154,7 @@ export default function Register() {
               {/* Google Login */}
               <button
                 onClick={() => signIn("google", { callbackUrl: "/" })}
-                className="flex w-full items-center justify-center rounded-lg h-11 px-5 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 gap-3 text-sm font-medium transition-colors"
+                className="flex w-full items-center justify-center rounded-lg h-11 px-5 bg-white/80 cursor-pointer hover:scale-101 transition-all duration-300 hover:bg-white text-slate-700 gap-3 text-sm font-medium"
               >
                 <FcGoogle />
                 <span className="truncate">Continue with Google</span>
@@ -165,7 +165,7 @@ export default function Register() {
                 <p className="text-sm text-text-secondary dark:text-slate-400">
                   Already have an account?
                   <Link
-                    className="font-medium text-primary hover:underline ml-1"
+                    className="font-medium primary-text hover:underline ml-1"
                     href="/login"
                   >
                     Login

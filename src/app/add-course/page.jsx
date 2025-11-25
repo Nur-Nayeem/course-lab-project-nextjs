@@ -57,7 +57,7 @@ const AddCourse = () => {
     <div className="flex justify-center py-24 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-3xl space-y-5">
         <div className="space-y-2 text-center">
-          <h1 className="text-[#333333] text-3xl sm:text-4xl font-bold">
+          <h1 className="secondary-text text-3xl sm:text-4xl font-bold">
             Add a New Course
           </h1>
           <p className="text-gray-500 text-base sm:text-lg font-normal">
@@ -66,17 +66,17 @@ const AddCourse = () => {
           </p>
         </div>
 
-        <div className="rounded-xl shadow-xl bg-white p-6 sm:p-8">
+        <div className="rounded-xl shadow-xl glass-blur p-6 sm:p-8">
           <form action={handlePublish} className="flex flex-col gap-6">
             <div className="grid grid-cols-1 gap-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Title + Category */}
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-medium text-[#333333]">
+                  <label className="text-sm font-medium secondary-text">
                     Course Title
                   </label>
                   <input
-                    className="form-input flex w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
+                    className="form-input flex w-full rounded-lg secondary-text border border-slate-300 bg-white/60 p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
                     placeholder="e.g., Introduction to Modern JavaScript"
                     type="text"
                     name="title"
@@ -84,11 +84,11 @@ const AddCourse = () => {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-medium text-[#333333]">
+                  <label className="text-sm font-medium secondary-text">
                     Category
                   </label>
                   <select
-                    className="form-input w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 focus:outline-primary"
+                    className="form-input w-full rounded-lg secondary-text border border-slate-300 bg-white/60 p-2.5 py-3 focus:outline-primary"
                     name="category"
                   >
                     <option value="">Select Category</option>
@@ -103,11 +103,11 @@ const AddCourse = () => {
 
               {/* Description */}
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-[#333333]">
+                <label className="text-sm font-medium secondary-text">
                   Description
                 </label>
                 <textarea
-                  className="form-input flex w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-2 placeholder:text-gray-500 focus:outline-primary"
+                  className="form-input flex w-full rounded-lg secondary-text border border-slate-300 bg-white/60 p-2.5 py-2 placeholder:text-gray-500 focus:outline-primary"
                   placeholder="A brief description of the course."
                   name="description"
                 ></textarea>
@@ -116,7 +116,7 @@ const AddCourse = () => {
               {/* Price + Level */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-medium text-[#333333]">
+                  <label className="text-sm font-medium secondary-text">
                     Price
                   </label>
                   <div className="relative">
@@ -124,7 +124,7 @@ const AddCourse = () => {
                       <span className="text-gray-400 text-base">$</span>
                     </div>
                     <input
-                      className="form-input w-full rounded-lg text-[#333333] border border-slate-300 bg-white pl-8 py-3 placeholder:text-gray-500 focus:outline-primary"
+                      className="form-input w-full rounded-lg secondary-text border border-slate-300 bg-white/60 pl-8 py-3 placeholder:text-gray-500 focus:outline-primary"
                       placeholder="99.99"
                       type="number"
                       name="price"
@@ -134,11 +134,11 @@ const AddCourse = () => {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-medium text-[#333333]">
+                  <label className="text-sm font-medium secondary-text">
                     Level
                   </label>
                   <select
-                    className="form-input w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 focus:outline-primary"
+                    className="form-input w-full rounded-lg secondary-text border border-slate-300 bg-white/60 p-2.5 py-3 focus:outline-primary"
                     name="level"
                   >
                     <option value="">Select Level</option>
@@ -152,11 +152,11 @@ const AddCourse = () => {
               {/* Instructor + Language */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-medium text-[#333333]">
+                  <label className="text-sm font-medium secondary-text">
                     Instructor
                   </label>
                   <input
-                    className="form-input w-full rounded-lg text-[#333333] border border-slate-300 bg-white px-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
+                    className="form-input w-full rounded-lg secondary-text border border-slate-300 bg-white/60 px-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
                     placeholder="Instructor Name"
                     type="text"
                     name="instructor"
@@ -164,11 +164,11 @@ const AddCourse = () => {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-medium text-[#333333]">
+                  <label className="text-sm font-medium secondary-text">
                     Language
                   </label>
                   <select
-                    className="form-input w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 focus:outline-primary"
+                    className="form-input w-full rounded-lg secondary-text border border-slate-300 bg-white/60 p-2.5 py-3 focus:outline-primary"
                     name="language"
                   >
                     <option value="">Select Language</option>
@@ -182,11 +182,11 @@ const AddCourse = () => {
               {/* Image + Duration */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-medium text-[#333333]">
+                  <label className="text-sm font-medium secondary-text">
                     Image URL
                   </label>
                   <input
-                    className="form-input w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
+                    className="form-input w-full rounded-lg secondary-text border border-slate-300 bg-white/60 p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
                     placeholder="https://example.png"
                     type="url"
                     name="image"
@@ -194,11 +194,11 @@ const AddCourse = () => {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-medium text-[#333333]">
+                  <label className="text-sm font-medium secondary-text">
                     Duration (hours)
                   </label>
                   <input
-                    className="form-input w-full rounded-lg text-[#333333] border border-slate-300 bg-white p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
+                    className="form-input w-full rounded-lg secondary-text border border-slate-300 bg-white/60 p-2.5 py-3 placeholder:text-gray-500 focus:outline-primary"
                     placeholder="e.g., 10"
                     type="number"
                     name="duration"
@@ -209,7 +209,7 @@ const AddCourse = () => {
 
             {/* Button */}
             <div className="flex justify-end mt-2">
-              <button className="cursor-pointer rounded-lg py-3 px-5 w-full bg-primary hover:bg-primary/90 text-white gap-2 text-sm font-bold transition-colors shadow-sm shadow-primary/40">
+              <button className="cursor-pointer rounded-lg py-3 px-5 w-full btn-primary hover:bg-primary/90 text-white gap-2 text-sm font-bold transition-colors shadow-sm shadow-primary/40">
                 <span className="truncate">Publish Course</span>
               </button>
             </div>

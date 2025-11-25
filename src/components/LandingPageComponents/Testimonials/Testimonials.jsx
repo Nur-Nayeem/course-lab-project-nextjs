@@ -6,7 +6,7 @@ const Testimonials = () => {
     <div className="py-16 sm:py-24">
       <div className="container mx-auto">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-[#333333] sm:text-4xl">
+          <h2 className="text-3xl font-bold secondary-text sm:text-4xl">
             What Our Students Say
           </h2>
           <p className="mt-4 text-lg text-gray-500">
