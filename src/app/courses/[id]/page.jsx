@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { BiArrowBack, BiBarChart, BiCalendar } from "react-icons/bi";
 import { BsPerson } from "react-icons/bs";
@@ -16,16 +18,26 @@ const CourseDetails = async ({ params }) => {
   return (
     <div className="container mx-auto flex flex-col w-full max-w-5xl flex-1 py-20">
       <div>
-        <button className="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 text-slate-600  gap-2 text-sm font-medium hover:bg-slate-500/10 transition-colors">
+        <Link
+          href={"/courses"}
+          className="flex w-max cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 text-slate-600  gap-2 text-sm font-medium hover:bg-slate-500/10 transition-colors"
+        >
           <BiArrowBack />
           <span className="truncate">Back to Courses</span>
-        </button>
+        </Link>
       </div>
       <div className="flex flex-col lg:flex-row gap-4 mt-2.5">
         <div className="flex flex-col flex-1">
           <div className="w-full">
-            <div className="bg-[url('/details.png')] bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-80 shadow-subtle">
-              <div className="flex p-6 sm:p-8">
+            <div className="relative bg-gray-300/60 bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-80 shadow-subtle">
+              <Image
+                src={course.image}
+                alt={course.title}
+                width={400}
+                height={300}
+                className="h-full w-full absolute top-0 left-0"
+              />
+              <div className="flex p-6 sm:p-8 relative">
                 <h1 className="text-white text-3xl sm:text-4xl font-bold leading-tight">
                   {course.title}
                 </h1>

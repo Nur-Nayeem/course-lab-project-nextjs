@@ -8,16 +8,16 @@ import { AuthContext } from "@/context/AuthContext";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { usePathname } from "next/navigation";
 import { MdLogout } from "react-icons/md";
+import Image from "next/image";
 const Navbar = () => {
   const { user, status, logout } = use(AuthContext);
   const pathname = usePathname();
-  console.log(pathname);
 
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/courses", label: "Courses" },
-    { href: "/add-course", label: "Add Course" },
-    { href: "/manage-courses", label: "Manage Course" },
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
@@ -79,7 +79,41 @@ const Navbar = () => {
           {user ? (
             <>
               <div className="flex items-center gap-2.5">
-                <IoPersonCircleOutline className="size-12 text-gray-500" />
+                <div className="dropdown dropdown-end z-50">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    {!user.image ? (
+                      <IoPersonCircleOutline className="size-12 text-gray-500" />
+                    ) : (
+                      <Image
+                        src={user.image}
+                        alt={user.name}
+                        width={200}
+                        height={200}
+                        className="rounded-full"
+                      />
+                    )}
+                  </div>
+                  <ul
+                    tabIndex="-1"
+                    className={`menu  menu-sm dropdown-content bg-[#e7e0f6] rounded-box z-50 mt-3 w-52 p-2 shadow`}
+                  >
+                    <li className="text-sm font-bold my-2 px-1">{user.name}</li>
+                    <li className="text-sm font-bold mb-3 px-1">
+                      {user.email}
+                    </li>
+                    <hr className="text-gray-400" />
+                    <li className="text-sm secondary-text font-medium mt-3 px-1">
+                      <Link href="/add-course">Add Course</Link>
+                    </li>
+                    <li className="text-sm secondary-text font-medium mt-3 px-1">
+                      <Link href="/manage-courses">Manage Course</Link>
+                    </li>
+                  </ul>
+                </div>
                 <button
                   onClick={logout}
                   className="bg-red-400 text-white px-3.5 py-2.5 rounded-lg"

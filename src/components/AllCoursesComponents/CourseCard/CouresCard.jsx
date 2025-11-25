@@ -6,7 +6,7 @@ const CouresCard = ({ course }) => {
   return (
     <div className="flex flex-col glass-blur rounded-xl overflow-hidden hover:scale-102 transition-all duration-300">
       <Image
-        src="/course-1.png"
+        src={course.image}
         alt="Course 1"
         className="w-full aspect-video"
         width={320}
