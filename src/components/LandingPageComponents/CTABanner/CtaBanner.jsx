@@ -1,6 +1,7 @@
+import Link from "next/link";
 import React from "react";
 
-const CtaBanner = () => {
+const CtaBanner = ({ buttonText }) => {
   return (
     <section className="py-16 sm:py-24">
       <div className="container mx-auto">
@@ -14,9 +15,12 @@ const CtaBanner = () => {
               career. Your future self will thank you.
             </p>
             <div className="mt-8 flex justify-center">
-              <button className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-white primary-text text-base font-bold transition-transform hover:scale-105">
-                Sign Up for Free
-              </button>
+              <Link
+                href={buttonText === "Exlplore Course" ? "/courses" : "reister"}
+                className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-white primary-text text-base font-bold transition-transform hover:scale-105"
+              >
+                {buttonText}
+              </Link>
             </div>
           </div>
         </div>

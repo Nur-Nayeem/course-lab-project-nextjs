@@ -17,8 +17,8 @@ const WhyLearn = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          <div className="flex flex-col gap-4 rounded-lg border border-slate-200 glass-blur p-6 text-center hover:scale-101 transition-all duration-200">
-            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/20 text-primary">
+          <div className="flex flex-col gap-4 rounded-lg glass-blur p-6 text-center hover:scale-101 transition-all duration-200">
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
               <RiGraduationCapLine className="text-3xl" />
             </div>
             <div className="flex flex-col gap-1">

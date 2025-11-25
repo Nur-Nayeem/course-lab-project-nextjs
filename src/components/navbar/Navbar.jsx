@@ -66,7 +66,7 @@ const Navbar = () => {
           ))}
         </div>
         <div className="flex flex-1 items-center justify-end gap-4">
-          <label className=" flex-col h-10 max-w-64">
+          <label className=" flex-col h-10 min-w-32 max-w-64">
             <div className="text-gray-500 flex border-none bg-gray-300/30 items-center justify-center px-3 rounded-lg border-r-0 py-3">
               <BiSearch />
               <input

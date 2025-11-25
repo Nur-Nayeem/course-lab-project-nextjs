@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
             </header>
             <main className="min-h-[calc(100vh-360px)]">{children}</main>
 
-            <footer className="px-2.5 sm:px-0">
+            <footer>
               <Footer />
             </footer>
           </AuthContextProvider>

@@ -14,7 +14,15 @@ const CouresCard = ({ course }) => {
       />
       <div className="p-5 flex flex-col grow">
         <div className="mb-4 grow">
-          <div className="inline-block bg-primary/10 primary-text text-xs font-semibold px-2.5 py-1 rounded-full mb-2">
+          <div
+            className={`inline-block ${
+              course.level === "Intermediate"
+                ? "bg-green-500/10 text-green-500"
+                : course.level === "Beginner"
+                ? "bg-blue-500/10 text-blue-500"
+                : "bg-accent/10 text-accent"
+            } text-xs font-semibold px-2.5 py-1 rounded-full mb-2`}
+          >
             {course.level}
           </div>
           <h3 className="text-lg font-bold secondary-text mb-2">

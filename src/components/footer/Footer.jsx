@@ -9,15 +9,13 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="glass-blur">
+    <footer className="glass-blur px-2.5 sm:px-0">
       <div className="container mx-auto py-12">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-3 ">
               <FaLaptopCode className="text-3xl primary-text" />
-              <h2 className="text-2xl font-bold hidden sm:block primary-text">
-                Course Lab
-              </h2>
+              <h2 className="text-2xl font-bold  primary-text">Course Lab</h2>
             </div>
             <p className="mt-4 text-sm text-gray-500 ">
               Empowering minds through accessible, quality online education for

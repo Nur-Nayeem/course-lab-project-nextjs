@@ -12,7 +12,7 @@ export default function Home() {
         <WhyLearn />
         <PopulerCourse />
         <Testimonials />
-        <CtaBanner />
+        <CtaBanner buttonText={"Sign up for free"} />
       </div>
     </div>
   );
