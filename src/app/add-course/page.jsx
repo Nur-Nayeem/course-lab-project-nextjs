@@ -47,6 +47,10 @@ const AddCourse = () => {
         courseObject
       );
 
+      revalidatePath("/");
+      revalidatePath("/manage-course");
+      revalidatePath("/courses");
+
       return { success: true };
     } catch (error) {
       return { success: false, message: "Failed to publish!" };

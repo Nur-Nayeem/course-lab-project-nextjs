@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import React from "react";
 import axios from "axios";
 import CouresCard from "@/components/AllCoursesComponents/CourseCard/CouresCard";

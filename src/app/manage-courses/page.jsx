@@ -10,6 +10,8 @@ const ManageCourse = async () => {
     await axios.delete(`https://server-course-lab.vercel.app/courses/${id}`);
 
     revalidatePath("/manage-course");
+    revalidatePath("/");
+    revalidatePath("/courses");
     return { success: true };
   }
 
