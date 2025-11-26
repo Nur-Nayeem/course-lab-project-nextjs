@@ -43,6 +43,7 @@ Users can browse, search, filter, and view course details. Authenticated users c
 
 ### Next Js:
 
+```bash
 /app
 ├── api
 │ └── auth
@@ -65,6 +66,8 @@ Users can browse, search, filter, and view course details. Authenticated users c
 |
 ├── layout.jsx # Main layout file
 └── page.jsx # Home Page
+
+```
 
 ---
 
