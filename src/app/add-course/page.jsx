@@ -1,3 +1,4 @@
+import AddCourseClient from "@/components/AllCoursesComponents/addCourseComponent/AddCourseClient";
 import axios from "axios";
 import React from "react";
 
@@ -25,8 +26,7 @@ const AddCourse = () => {
       !image ||
       Number.isNaN(duration)
     ) {
-      console.log("All fields must be filled");
-      return;
+      return { success: false, message: "All fields must be filled" };
     }
 
     // Final object
@@ -46,10 +46,10 @@ const AddCourse = () => {
         "http://localhost:4000/courses",
         courseObject
       );
-      console.log(data.data);
-      console.log("success");
+
+      return { success: true };
     } catch (error) {
-      console.log(error);
+      return { success: false, message: "Failed to publish!" };
     }
   };
 
@@ -67,7 +67,7 @@ const AddCourse = () => {
         </div>
 
         <div className="rounded-xl shadow-xl glass-blur p-6 sm:p-8">
-          <form action={handlePublish} className="flex flex-col gap-6">
+          <AddCourseClient handlePublish={handlePublish}>
             <div className="grid grid-cols-1 gap-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Title + Category */}
@@ -93,6 +93,7 @@ const AddCourse = () => {
                   >
                     <option value="">Select Category</option>
                     <option value="Web Development">Web Development</option>
+                    <option value="Mobile App Dev">Mobile App Dev</option>
                     <option value="Design">Design</option>
                     <option value="Marketing">Marketing</option>
                     <option value="Data Science">Data Science</option>
@@ -213,7 +214,7 @@ const AddCourse = () => {
                 <span className="truncate">Publish Course</span>
               </button>
             </div>
-          </form>
+          </AddCourseClient>
         </div>
       </div>
     </div>

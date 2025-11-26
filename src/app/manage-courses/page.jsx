@@ -10,6 +10,7 @@ const ManageCourse = async () => {
     await axios.delete(`http://localhost:4000/courses/${id}`);
 
     revalidatePath("/manage-course");
+    return { success: true };
   }
 
   let courses = [];

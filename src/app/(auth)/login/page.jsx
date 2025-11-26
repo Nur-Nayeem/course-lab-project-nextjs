@@ -8,6 +8,7 @@ import { BiLock } from "react-icons/bi";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
+import toast from "react-hot-toast";
 
 export default function Login() {
   const [showPass, setShowPass] = useState(false);
@@ -21,9 +22,12 @@ export default function Login() {
     });
 
     if (res.error) {
-      alert(res.error);
+      toast.error(res.error);
     } else {
-      window.location.href = "/";
+      toast.success("Login successfull");
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1000);
     }
   };
 

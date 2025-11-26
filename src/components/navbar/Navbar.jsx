@@ -66,16 +66,6 @@ const Navbar = () => {
           ))}
         </div>
         <div className="flex flex-1 items-center justify-end gap-4">
-          <label className=" flex-col h-10 min-w-32 max-w-64">
-            <div className="text-gray-500 flex border-none bg-gray-300/30 items-center justify-center px-3 rounded-lg border-r-0 py-3">
-              <BiSearch />
-              <input
-                className="flex form-input w-full min-w-0 flex-1 overflow-hidden rounded-lg secondary-text focus:outline-0  h-full placeholder:text-gray-500 px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal"
-                placeholder="Search"
-              />
-            </div>
-          </label>
-
           {user ? (
             <>
               <div className="flex items-center gap-2.5">

@@ -9,6 +9,7 @@ import { IoEye, IoEyeOff } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { BsPerson } from "react-icons/bs";
+import toast from "react-hot-toast";
 
 export default function Register() {
   const [showPass, setShowPass] = useState(false);
@@ -22,16 +23,14 @@ export default function Register() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-
-      const result = await res.json();
-      alert(result.message);
-
       if (res.ok) {
-        window.location.href = "/login"; // redirect after signup
+        toast.success("Registration successfull Now you can login");
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 1000);
       }
     } catch (error) {
-      console.error(error);
-      alert("Something went wrong!");
+      toast.error(error);
     }
   };
 

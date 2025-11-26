@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Banner = () => {
@@ -12,9 +13,12 @@ const Banner = () => {
           journey today to unlock your full potential.
         </h2>
         <div className="flex justify-center">
-          <button className="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg py-3 px-6 btn-primary text-white text-base font-bold transition-transform hover:scale-102">
+          <Link
+            href={"/courses"}
+            className="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg py-3 px-6 btn-primary text-white text-base font-bold transition-transform hover:scale-102"
+          >
             Browse Courses
-          </button>
+          </Link>
         </div>
       </div>
     </div>
