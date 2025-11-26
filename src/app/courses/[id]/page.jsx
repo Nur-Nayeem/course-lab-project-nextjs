@@ -9,7 +9,9 @@ const CourseDetails = async ({ params }) => {
   const { id } = await params;
   let course = {};
   try {
-    const data = await fetch(`http://localhost:4000/courses/${id}`);
+    const data = await fetch(
+      `https://server-course-lab.vercel.app/courses/${id}`
+    );
     course = await data.json();
   } catch (error) {
     console.log(error);

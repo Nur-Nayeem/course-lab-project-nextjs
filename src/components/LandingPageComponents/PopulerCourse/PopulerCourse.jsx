@@ -4,7 +4,9 @@ import CouresCard from "@/components/AllCoursesComponents/CourseCard/CouresCard"
 const PopulerCourse = async () => {
   let courses = [];
   try {
-    const data = await axios.get("http://localhost:4000/courses?limit=3");
+    const data = await axios.get(
+      "https://server-course-lab.vercel.app/courses?limit=3"
+    );
     courses = data.data;
   } catch (error) {
     console.log(error);

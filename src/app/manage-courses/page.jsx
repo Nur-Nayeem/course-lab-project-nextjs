@@ -7,7 +7,7 @@ import React from "react";
 const ManageCourse = async () => {
   async function deleteCourse(id) {
     "use server";
-    await axios.delete(`http://localhost:4000/courses/${id}`);
+    await axios.delete(`https://server-course-lab.vercel.app/courses/${id}`);
 
     revalidatePath("/manage-course");
     return { success: true };
@@ -15,7 +15,9 @@ const ManageCourse = async () => {
 
   let courses = [];
   try {
-    const data = await axios.get("http://localhost:4000/courses");
+    const data = await axios.get(
+      "https://server-course-lab.vercel.app/courses"
+    );
     courses = data.data;
   } catch (error) {
     console.log(error);

@@ -43,7 +43,7 @@ const AddCourse = () => {
 
     try {
       const data = await axios.post(
-        "http://localhost:4000/courses",
+        "https://server-course-lab.vercel.app/courses",
         courseObject
       );
 

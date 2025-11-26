@@ -9,7 +9,7 @@ const AllCourses = async ({ searchParams }) => {
   const category = params.category || "All";
   const search = params.search || "";
 
-  let url = "http://localhost:4000/courses";
+  let url = "https://server-course-lab.vercel.app/courses";
 
   if (category !== "All" && search) {
     url += `?category=${category}&search=${search}`;
