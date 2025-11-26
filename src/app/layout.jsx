@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
               <Navbar />
             </header>
             <main className="min-h-[calc(100vh-360px)]">
-              {children} <Toaster position="top-center" />
+              {children} <Toaster position="top-right" />
             </main>
 
             <footer>

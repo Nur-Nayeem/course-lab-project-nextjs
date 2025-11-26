@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📚 Course Lab
 
-## Getting Started
+Course Lab is a modern online course marketplace built using **Next.js (App Router)**, **NextAuth**, and **Express.js**.  
+Users can browse, search, filter, and view course details. Authenticated users can also **add** and **delete** courses.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+- 🔍 Browse all courses
+- 🏷️ Filter courses by category
+- 🔎 Search courses
+- 📄 View course details
+- 🔐 User authentication using NextAuth
+- ➕ Add new course (authenticated users)
+- ❌ Delete course (authenticated users)
+- ⚙️ Express.js backend with MongoDB (Mongoose)
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** Next.js 16 (App Router), Tailwind CSS, DaisyUI
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB, Mongoose
+- **Authentication:** NextAuth (Email/Password & Google)
+
+---
+
+## 📦 Dependencies
+
+- Axios
+- React Icons
+- Lucide-react
+- React Hot Toast
+- bcryptjs
+- lucide-react
+- mongoose
+
+---
+
+## 📁 Project Structure
+
+### Next Js:
+
+/app
+├── api
+│ └── auth
+│ ├── [...nextauth]/ # NextAuth config
+│ | └── route.js # NextAuth API route
+│ └── signup
+| └── route.js # Signup route
+├── add-course/ # Add new course page
+│ └── page.jsx
+├── manage-courses/ # Manage/Delete courses page
+│ └── page.jsx
+├── courses/
+│ ├── [id]/page.jsx # Dynamic course detail page
+│ └── page.jsx
+├── (auth)
+| ├── login/
+| | └── page.jsx # Login page
+| └── signup/
+| └── page.jsx # Signup page
+|
+├── layout.jsx # Main layout file
+└── page.jsx # Home Page
+
+---
+
+## ⚙️ Setup & Installation
+
+### **1. Clone the repository**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Nur-Nayeem/course-lab-project-nextjs.git
+cd course-lab-project-nextjs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **2. Install dependencies**
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
 
-## Learn More
+### **🔧 Environment Variables**
 
-To learn more about Next.js, take a look at the following resources:
+```
+MONGO_URI=your-mongodb-uri
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+GOOGLE_CLIENT_ID=google-cloud-client-id
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+GOOGLE_CLIENT_SECRET=google-cloud-client-secret
 
-## Deploy on Vercel
+NEXTAUTH_SECRET=any-secrete-key
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### **▶️ Running the Project**
+
+```
+npm run dev
+
+```
+
+---
+
+### **🌍 Live Website:** [Course Lab](https://course-lab-project-nextjs.vercel.app/)
+
+### **💻 Client GitHub Repo:** [Client Repo](https://github.com/Nur-Nayeem/course-lab-project-nextjs)
+
+### **🛢️ Server GitHub Repo:** [Server Repo](https://github.com/Nur-Nayeem/course-lab-server-express)
