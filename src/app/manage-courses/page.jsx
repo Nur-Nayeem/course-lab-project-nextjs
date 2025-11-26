@@ -4,6 +4,8 @@ import { revalidatePath } from "next/cache";
 import Link from "next/link";
 import React from "react";
 
+export const dynamic = "force-dynamic";
+
 const ManageCourse = async () => {
   async function deleteCourse(id) {
     "use server";
