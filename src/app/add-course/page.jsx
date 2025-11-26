@@ -49,7 +49,7 @@ const AddCourse = () => {
       );
 
       revalidatePath("/");
-      revalidatePath("/manage-course");
+      revalidatePath("/manage-courses");
       revalidatePath("/courses");
 
       return { success: true };
