@@ -1,6 +1,7 @@
 import AddCourseClient from "@/components/AllCoursesComponents/addCourseComponent/AddCourseClient";
 import axios from "axios";
 import React from "react";
+import { revalidatePath } from "next/cache";
 
 const AddCourse = () => {
   const handlePublish = async (formData) => {
