@@ -35,7 +35,6 @@ const ManageCourse = async () => {
     <div className="container mx-auto py-20">
       <h2 className="text-center text-3xl font-bold secondary-text my-4">
         Manage My Courses
-        <span className="text-red-400">{courses.length}</span>
       </h2>
       <div>
         <div className="overflow-x-auto glass-blur rounded-lg w-full">
