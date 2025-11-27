@@ -34,7 +34,7 @@ const ManageCourse = async () => {
   return (
     <div className="container mx-auto py-20">
       <h2 className="text-center text-3xl font-bold secondary-text my-4">
-        Available Courses:{" "}
+        Manage My Courses
         <span className="text-red-400">{courses.length}</span>
       </h2>
       <div>
