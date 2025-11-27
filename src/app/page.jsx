@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
       <Banner />
-      <div className="px-2.5 sm:px-0">
+      <div>
         <WhyLearn />
         <PopulerCourse />
         <Testimonials />

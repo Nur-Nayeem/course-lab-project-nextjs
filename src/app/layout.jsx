@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
             <header>
               <Navbar />
             </header>
-            <main className="min-h-[calc(100vh-360px)]">
+            <main className="min-h-[calc(100vh-360px)] px-2.5 sm:px-0">
               {children} <Toaster position="top-right" />
             </main>
 

@@ -63,6 +63,11 @@ Users can browse, search, filter, and view course details. Authenticated users c
 | | └── page.jsx # Login page
 | └── signup/
 | └── page.jsx # Signup page
+├── contact/ 
+│ └── page.jsx  # Contact Page
+├── about/ 
+│ └── page.jsx  # ABout Page
+├── not-found.jsx # Page Not Found Page
 |
 ├── layout.jsx # Main layout file
 └── page.jsx # Home Page
