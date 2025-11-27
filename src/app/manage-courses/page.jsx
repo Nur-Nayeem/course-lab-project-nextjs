@@ -3,10 +3,14 @@ import axios from "axios";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
 import React from "react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export const dynamic = "force-dynamic";
 
 const ManageCourse = async () => {
+  const session = await getServerSession(authOptions);
+  const email = session?.user?.email;
   async function deleteCourse(id) {
     "use server";
     await axios.delete(`https://server-course-lab.vercel.app/courses/${id}`);
@@ -20,7 +24,7 @@ const ManageCourse = async () => {
   let courses = [];
   try {
     const data = await axios.get(
-      "https://server-course-lab.vercel.app/courses"
+      `https://server-course-lab.vercel.app/manage-courses?email=${email}`
     );
     courses = data.data;
   } catch (error) {

@@ -6,7 +6,7 @@ import bcrypt from "bcryptjs";
 import User from "@/models/User";
 import { connectDB } from "@/lib/db";
 
-const handler = NextAuth({
+export const authOptions = {
   session: { strategy: "jwt" },
 
   providers: [
@@ -39,7 +39,6 @@ const handler = NextAuth({
   ],
 
   callbacks: {
-    //store mongdb
     async signIn({ user, account }) {
       await connectDB();
 
@@ -66,6 +65,7 @@ const handler = NextAuth({
       return session;
     },
   },
-});
+};
 
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };

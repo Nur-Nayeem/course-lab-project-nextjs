@@ -2,10 +2,19 @@ import AddCourseClient from "@/components/AllCoursesComponents/addCourseComponen
 import axios from "axios";
 import React from "react";
 import { revalidatePath } from "next/cache";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 const AddCourse = () => {
   const handlePublish = async (formData) => {
     "use server";
+
+    const session = await getServerSession(authOptions);
+    const email = session?.user?.email;
+
+    if (!email) {
+      return { success: false, message: "You must be logged in to publish" };
+    }
 
     const title = formData.get("title");
     const category = formData.get("category");
@@ -40,6 +49,7 @@ const AddCourse = () => {
       instructor,
       image,
       duration,
+      email,
     };
 
     try {
